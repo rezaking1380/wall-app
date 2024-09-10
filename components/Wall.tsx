@@ -44,7 +44,6 @@ const StickyNotesWall: React.FC = () => {
     updatedNotes.splice(result.destination.index, 0, reorderedNote);
     setNotes(updatedNotes);
   };
-console.log(notes)
   return (
     <div>
       <h1>Sticky Notes Wall</h1>
@@ -63,7 +62,7 @@ console.log(notes)
       </div>
 
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="notes">
+        <Droppable droppableId="stickyNote">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {notes.map((note, index) => (
