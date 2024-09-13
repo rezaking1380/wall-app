@@ -48,7 +48,7 @@ const StickyNotesWall: React.FC = () => {
   return (
     <div className='lg:mx-24 mx-6 my-10 flex flex-col gap-6'>
       <h1 className='text-center text-[48px] font-bold font-IranX'>Wall App</h1>
-      <div className=' flex gap-6 items-center justify-between'>
+      <div className='flex flex-col md:flex-row gap-6 items-center justify-between'>
         <textarea
           placeholder="New message"
           value={newMessage}
