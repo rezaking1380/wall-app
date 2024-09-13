@@ -44,25 +44,26 @@ const StickyNotesWall: React.FC = () => {
     updatedNotes.splice(result.destination.index, 0, reorderedNote);
     setNotes(updatedNotes);
   };
+  console.log(notes)
   return (
-    <div>
-      <h1>Sticky Notes Wall</h1>
-      <div>
+    <div className='lg:mx-24 mx-6 my-10 flex flex-col gap-6'>
+      <h1 className='text-center text-[48px] font-bold font-IranX'>Wall App</h1>
+      <div className=' flex gap-6 items-center justify-between'>
         <textarea
           placeholder="New message"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          className='border-gray-400 border rounded-md p-2 font-IranX w-1/2'
         />
         <input
           type="date"
           value={newDeadline}
           onChange={(e) => setNewDeadline(e.target.value)}
         />
-        <button onClick={addNote}>Add Note</button>
+        <button onClick={addNote} disabled={newMessage && newDeadline ? false : true} className='px-6 py-2 rounded-md disabled:bg-gray-300 border-green-300 bg-green-200 text-gray-500 hover:text-black'>Add Note</button>
       </div>
-
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="stickyNote">
+        <Droppable droppableId="notes1">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {notes.map((note, index) => (
