@@ -27,7 +27,9 @@ To set up and run the project locally:
    git clone https://github.com/rezaking1380/wall-app
    cd wall-app
 
-   ##  Repository Structure
+__
+
+##  Repository Structure
 
 ```sh
 └── wall-app/
@@ -127,14 +129,6 @@ To run the project, execute the following command:
 
 ```sh
 ❯ npm run build && node dist/main.js
-```
-
-###  Tests
-
-Execute the test suite using the following command:
-
-```sh
-❯ npm test
 ```
 
 ---
