@@ -15,7 +15,7 @@ interface Note {
   deadline: string;
 }
 
-const LOCAL_STORAGE_KEY = "WallApp.notes";
+const LOCAL_STORAGE_KEY = "stickyNotesApp.notes";
 
 const StickyNotesWall: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -23,17 +23,17 @@ const StickyNotesWall: React.FC = () => {
   const [newDeadline, setNewDeadline] = useState("");
 
   useEffect(() => {
-    if (!!notes) {
+    if (notes.length > 0) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(notes));
     }
   }, [notes]);
 
   useEffect(() => {
-    const savedNotes = localStorage.getItem(LOCAL_STORAGE_KEY);
-    console.log(savedNotes)
-    if (!!savedNotes) {
-      setNotes(JSON.parse(savedNotes));
-      console.log(savedNotes, notes);
+    if (!!notes) {
+      const savedNotes = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (!!savedNotes) {
+        setNotes(JSON.parse(savedNotes));
+    }
     }
   }, []);
 
@@ -96,7 +96,7 @@ const StickyNotesWall: React.FC = () => {
         </button>
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="notes1">
+        <Droppable droppableId="notes">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {notes.map((note, index) => (
