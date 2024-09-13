@@ -22,7 +22,7 @@ const StickyNote: React.FC<StickyNoteProps> = ({ id, message, date, deadline, on
   const isDeadlineReached = new Date(deadline) < new Date();
 
   return (
-    <div className='flex' style={{ backgroundColor: isDeadlineReached ? '#F4F9F3' : '#FEF4F3', padding: '1rem', margin: '0.5rem' }}>
+    <div className='flex rounded-md' style={{ backgroundColor: isDeadlineReached ? '#F4F9F3' : '#FEF4F3', padding: '1rem', margin: '0.5rem' }}>
       {isEditing ? (
         <div className='flex flex-wrap font-IranX items-center justify-between w-full'>
           <textarea value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className='border-gray-400 border rounded-md p-2 font-IranX w-1/2' />
