@@ -65,7 +65,6 @@ const StickyNotesWall: React.FC = () => {
   };
 
   const handleOnDragEnd = (result: DropResult) => {
-    console.log(result);
     if (!result.destination) return;
     const updatedNotes = Array.from(notes);
     const [reorderedNote] = updatedNotes.splice(result.source.index, 1);
